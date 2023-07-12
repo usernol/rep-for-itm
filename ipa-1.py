@@ -146,5 +146,5 @@ def body_mass_index(weight, height):
     weight_kg = weight * 0.45
     height_m = ((height[0] * 12 + (height[1]) * 0.02))
     
-    bmi = kg_weight / (m_height ** 2)
+    bmi = weight_kg / (height_m ** 2)
     return bmi
