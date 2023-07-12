@@ -37,8 +37,8 @@ def shift_letter(letter, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    if letter = " ":
-        return = " "
+    if letter == " ":
+        return " "
     
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
     letter = letter.upper()
@@ -68,7 +68,6 @@ def caesar_cipher(message, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    def caesar_cipher(message, shift):
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     message = message.upper()
     cipher_message = ''
@@ -228,7 +227,20 @@ def scytale_cipher(message, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    message = message.upper()
+    long_message = ""
+    encoded_message = ' '
+
+    if len(message) % shift != 0:
+        long_message = message + ('_' * (shift - (len(message) % shift)))
+    else: 
+        long_message = message
+    
+    for i in range(len(long_message)):
+        index = (i // shift) + (len(long_message) // shift) * (i % shift)
+        encoded_message += long_message[index]
+    
+    return encoded_message
 
 def scytale_decipher(message, shift):
     '''Scytale De-cipher.
@@ -257,4 +269,12 @@ def scytale_decipher(message, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    message = message.upper()
+    decoded_message = ''
+    length_cycle = len(message) // shift
+
+    for i in range(len(message)):
+        orig_index = (i // length_cycle) + (i % length_cycle) * shift
+        orig_message = message [orig_index]
+        decoded_message += orig_message
+    return decoded_message
