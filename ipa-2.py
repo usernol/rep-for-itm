@@ -229,17 +229,16 @@ def scytale_cipher(message, shift):
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     message = message.upper()
     long_message = ""
-    encoded_message = ' '
+    encoded_message = ''
 
     if len(message) % shift != 0:
-        long_message = message + ('_' * (shift - (len(message) % shift)))
-    else: 
-        long_message = message
+            long_message = message + ('_' * (shift - (len(message) % shift)))
+    else:  
+            long_message = message
     
     for i in range(len(long_message)):
         index = (i // shift) + (len(long_message) // shift) * (i % shift)
         encoded_message += long_message[index]
-    
     return encoded_message
 
 def scytale_decipher(message, shift):
